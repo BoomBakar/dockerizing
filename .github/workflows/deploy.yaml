@@ -6,30 +6,37 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Set up .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '6.0.x' # Update if using a different .NET version
 
+      # Step 3: Install dependencies
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore ./DevOpsDemo/DevOpsDemo.csproj
 
+      # Step 4: Build the application
       - name: Build application
-        run: dotnet build --configuration Release
-      
-      - name: Run tests
-        run: dotnet test
- # Step 6: Deploy to Azure App Service
+        run: dotnet build ./DevOpsDemo/DevOpsDemo.csproj --configuration Release
+
+      # Step 5: Publish the application
+      - name: Publish application
+        run: dotnet publish ./DevOpsDemo/DevOpsDemo.csproj --configuration Release --output ./bin/Release/net6.0/publish
+
+      # Step 6: Deploy to Azure App Service
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'dotnetdemoapp' # Replace with your Azure App Service name
           slot-name: 'production' # Keep as 'production' unless you're using deployment slots
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: ${{ github.workspace }}/DevOpsDemo/bin/Release/net6.0/publish # Replace with your build output directory
+          package: ${{ github.workspace }}/DevOpsDemo/bin/Release/net6.0/publish
