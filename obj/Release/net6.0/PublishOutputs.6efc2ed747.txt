@@ -1,0 +1,7 @@
+C:\Assignment\DevOpsDemo\obj\Release\net6.0\PubTmp\Out\DevOpsDemo.exe
+C:\Assignment\DevOpsDemo\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Assignment\DevOpsDemo\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Assignment\DevOpsDemo\obj\Release\net6.0\PubTmp\Out\DevOpsDemo.dll
+C:\Assignment\DevOpsDemo\obj\Release\net6.0\PubTmp\Out\DevOpsDemo.deps.json
+C:\Assignment\DevOpsDemo\obj\Release\net6.0\PubTmp\Out\DevOpsDemo.runtimeconfig.json
+C:\Assignment\DevOpsDemo\obj\Release\net6.0\PubTmp\Out\DevOpsDemo.pdb
