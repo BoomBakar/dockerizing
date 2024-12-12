@@ -35,5 +35,5 @@ jobs:
           app-name: 'dotnetdemoapp' # Replace with your Azure App Service name
           slot-name: 'production' # Keep as 'production' unless you're using deployment slots
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: ${{ github.workspace }}/DevOpsDemo/bin/Release/net6.0/publish # Replace with your build output directory
+          package: ${{ github.workspace }}/bin/Release/net6.0/publish # Replace with your build output directory
 
