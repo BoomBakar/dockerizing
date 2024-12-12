@@ -24,7 +24,7 @@ jobs:
         run: dotnet build --configuration Release
 # Step 5: Publish the application
       - name: Publish application
-        run: dotnet publish ./DevOpsDemo/DevOpsDemo.csproj --configuration Release --output ./bin/Release/net6.0/publish
+        run: dotnet publish --configuration Release --output ./bin/Release/net6.0/publish
       
       - name: Run tests
         run: dotnet test
